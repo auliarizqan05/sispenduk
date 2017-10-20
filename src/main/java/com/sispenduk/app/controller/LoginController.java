@@ -23,7 +23,7 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 
-	@RequestMapping(name = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView welcome() {
 		ModelAndView model = new ModelAndView();
 		model.addObject("user", new User());
@@ -31,7 +31,7 @@ public class LoginController {
 		return model;
 	}
 
-	@RequestMapping(name = "/loginProcess", method = RequestMethod.POST)
+	@RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
 	public ModelAndView loginProcess(@ModelAttribute("user") User user) {
 //	public ModelAndView loginProcess(@RequestParam("password") String password, @RequestParam("username") String username) {
 		ModelAndView model = new ModelAndView();
@@ -60,5 +60,14 @@ public class LoginController {
 	//
 	// return model;
 	// }
+	
+	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	public ModelAndView getData() {
+
+		ModelAndView model = new ModelAndView("hello");
+	
+		return model;
+
+	}
 
 }
